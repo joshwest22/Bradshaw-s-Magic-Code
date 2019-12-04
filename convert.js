@@ -34,11 +34,8 @@ csvPromise.then(function(input)
 
 var convertData = function(input)
 {
-    var getData = function(popData)
-{
-    //do i still need the states array or this getData function
     states = [{name: "Alabama", total: [], male: [], female: [], both: [], white: [], black: [], asian: [], multiracial: []}] //each array within each state object will need to be summed; I will also have to copy paste the Alabama object for each state
-    popData.forEach(function(d)
+    input.forEach(function(d)
     {
         if(d.AGE == 40) //this is the average age of CS professionals according to https://datausa.io/profile/cip/computer-science-6
             {
@@ -63,7 +60,7 @@ var convertData = function(input)
             }
     })
     console.log(states);
-}
+    //var summedConvert = d3.sum() //fix this so that each property is summed
 //    return input.map(function(row) // MY CODE GOES HERE
 //    {
 //        row.name = row.name.toUpperCase();
