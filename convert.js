@@ -58,6 +58,7 @@ var convertData = function(input)
                 if(d.RACE == 6) //two or more races;
                     {states[d.STATE-1].multiracial.push(d.POPESTIMATE2017)} //nothing is being pushed. Maybe bc problem with asian if statement
             }
+        //return states;
     })
     console.log(states);
     //var summedConvert = d3.sum() //fix this so that each property is summed
