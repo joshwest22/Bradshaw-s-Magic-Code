@@ -9,7 +9,7 @@ var fs = require("fs");
 
 
 //will not allow relative paths for this....
-var csvPromise = csv("https://joshwest22.github.io/Final-Project-Addition/data/sc-est2018-alldata6.csv")
+var csvPromise = csv("https://joshwest22.github.io/Final-Project-Addition/data/sc-est2018-alldata6 (1).csv")
 
 csvPromise.then(function(input)
 {
@@ -34,39 +34,47 @@ csvPromise.then(function(input)
 
 var convertData = function(input)
 {
-    states = [{name: "Alabama", total: [], male: [], female: [], both: [], white: [], black: [], asian: [], multiracial: []}] //each array within each state object will need to be summed; I will also have to copy paste the Alabama object for each state
-    input.forEach(function(d)
+  
+
+//    //do i still need the states array or this getData function
+//    states = [{name: "Alabama", total: [], male: [], female: [], both: [], white: [], black: [], asian: [], multiracial: []}] //each array within each state object will need to be summed; I will also have to copy paste the Alabama object for each state
+//    pforEach(function(d)
+//    {
+//        if(d.AGE == 40) //this is the average age of CS professionals according to https://datausa.io/profile/cip/computer-science-6
+//            {
+//                totalAccumulator = 0;
+//    
+//                if(d.RACE < 7)
+//                    {totalAccumulator += d.POPESTIMATE2017; console.log("states",states);console.log("totalAccumulator", totalAccumulator);}
+//                if(d.SEX == 0)//both sexes
+//                    {states[d.STATE-1].both.push(d.POPESTIMATE2017)} //console log what each of these are
+//                if(d.SEX == 1)//male
+//                    {states[d.STATE-1].male.push(d.POPESTIMATE2017)}
+//                if(d.SEX == 2)//female
+//                    {states[d.STATE-1].female.push(d.POPESTIMATE2017)}
+//                if(d.RACE == 1)//white
+//                    {states[d.STATE-1].white.push(d.POPESTIMATE2017)}
+//                if(d.RACE == 2)//black
+//                    {states[d.STATE-1].black.push(d.POPESTIMATE2017)}
+//                if(d.RACE == 4)//asian
+//                    {states[d.STATE-1].asian.push(d.POPESTIMATE2017)} 
+//                if(d.RACE == 6) //two or more races;
+//                    {states[d.STATE-1].multiracial.push(d.POPESTIMATE2017)} //nothing is being pushed. Maybe bc problem with asian if statement
+//            }
+//    })
+//    console.log(states);
+    
+    return input.filter(function(d)
     {
         if(d.AGE == 40) //this is the average age of CS professionals according to https://datausa.io/profile/cip/computer-science-6
             {
-                totalAccumulator = 0;
+                return true;
+                
+            }}).map(function(row) 
+            {
+                return row;
+            })        
     
-                if(d.RACE < 7)
-                    {totalAccumulator += d.POPESTIMATE2017; console.log("states",states);console.log("totalAccumulator", totalAccumulator);}
-                if(d.SEX == 0)//both sexes
-                    {states[d.STATE-1].both.push(d.POPESTIMATE2017)} //console log what each of these are
-                if(d.SEX == 1)//male
-                    {states[d.STATE-1].male.push(d.POPESTIMATE2017)}
-                if(d.SEX == 2)//female
-                    {states[d.STATE-1].female.push(d.POPESTIMATE2017)}
-                if(d.RACE == 1)//white
-                    {states[d.STATE-1].white.push(d.POPESTIMATE2017)}
-                if(d.RACE == 2)//black
-                    {states[d.STATE-1].black.push(d.POPESTIMATE2017)}
-                if(d.RACE == 4)//asian
-                    {states[d.STATE-1].asian.push(d.POPESTIMATE2017)} 
-                if(d.RACE == 6) //two or more races;
-                    {states[d.STATE-1].multiracial.push(d.POPESTIMATE2017)} //nothing is being pushed. Maybe bc problem with asian if statement
-            }
-        //return states;
-    })
-    console.log(states);
-    //var summedConvert = d3.sum() //fix this so that each property is summed
-//    return input.map(function(row) // MY CODE GOES HERE
-//    {
-//        row.name = row.name.toUpperCase();
-//        return row;
-//    })
     
     
     
@@ -78,7 +86,7 @@ var convertToCSV = function(csvData,columns)
 {
     if(columns)
     {
-    //is this where my function goes? or is this what happens if they are already columns?
+    
     }
     else
     {
